@@ -1,0 +1,63 @@
+# Créé par Bénito Ornel Yehouenou
+# Créé par le 27 Janvier 2022
+# Exercice POO 3
+
+import random
+
+class NPC:
+
+    def __init__(self):
+        self.force = lancer_de()
+        self.agilite = lancer_de()
+        self.constitution = lancer_de()
+        self.intelligence = lancer_de()
+        self.sagesse = lancer_de()
+        self.charisme= lancer_de()
+        self.classe_armure = random.randint(1, 12)
+        self.nom = str
+        self.race = str
+        self.espece = str
+        self.point_de_vie = random.randint(1,20)
+        self.profession = str
+
+
+    def afficher_caracteristique(self):
+        print(self.race, self.espece, self.nom, self.force, self.point_de_vie, self.agilite, self.charisme, self.classe_armure, self.constitution, self.intelligence, self.profession, self.sagesse)
+
+
+
+def lancer_de():
+    de_1 = random.randint(1,6)
+    de_2 = random.randint(1,6)
+    de_3 = random.randint(1,6)
+    de_4 = random.randint(1,6)
+    liste = [de_1, de_2, de_3, de_4]
+    liste.sort()
+    return liste[1]+liste[2]+liste[3]
+
+
+
+class Kobold(NPC):
+    def __init__(self):
+        super().__init__()
+    def attaque(self, NPC):
+        return
+    def subir_dommage(self, dommage):
+        self.point_de_vie -= dommage
+
+
+
+class Hero(NPC):
+    def __init__(self):
+        super().__init__()
+    def attaque(self, NPC = Kobold):
+        de = random.randint(1,20)
+        if de == 20:
+            NPC.subir_dommage(random.randint(1,8))
+        if de == 1:
+        if de >= 2 and <= 19:
+            if de >= self.point_de_vie:
+                NPC.subir_dommage(random.randint(1,6))
+            else:
+
+     def subir_dommage(self, dommage):
