@@ -4,8 +4,10 @@
 
 import random
 
+# Je créé une classe NPC
 class NPC:
 
+# Méthode init pour mettre les attributs de base de la classe NPC
     def __init__(self):
         self.force = lancer_de()
         self.agilite = lancer_de()
@@ -25,7 +27,7 @@ class NPC:
         print(self.race, self.espece, self.nom, self.force, self.point_de_vie, self.agilite, self.charisme, self.classe_armure, self.constitution, self.intelligence, self.profession, self.sagesse)
 
 
-
+# Méthode pour le lancé de dé
 def lancer_de():
     de_1 = random.randint(1,6)
     de_2 = random.randint(1,6)
@@ -36,7 +38,7 @@ def lancer_de():
     return liste[1]+liste[2]+liste[3]
 
 
-
+# Classe Kobold qui hérite de la méthode NPC
 class Kobold(NPC):
     def __init__(self):
         super().__init__()
@@ -46,7 +48,7 @@ class Kobold(NPC):
         self.point_de_vie -= dommage
 
 
-
+# Classe Hero qui hérite de la méthode NPC
 class Hero(NPC):
     def __init__(self):
         super().__init__()
@@ -55,9 +57,13 @@ class Hero(NPC):
         if de == 20:
             NPC.subir_dommage(random.randint(1,8))
         if de == 1:
-        if de >= 2 and <= 19:
-            if de >= self.point_de_vie:
+            return
+        if de >= 2 and de <= 19:
+            if de >= self.classe_armure:
                 NPC.subir_dommage(random.randint(1,6))
             else:
+                return
 
+    def subir_dommage(self, dommage):
+         return
      def subir_dommage(self, dommage):
